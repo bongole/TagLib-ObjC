@@ -225,6 +225,7 @@
 		45313DB415A10EA00092354D /* zero-size-chunk.wav in Resources */ = {isa = PBXBuildFile; fileRef = 45313D8715A10EA00092354D /* zero-size-chunk.wav */; };
 		45EE0B4C160E3F1C00B4072D /* ownershipframe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 45EE0B4A160E3F1C00B4072D /* ownershipframe.cpp */; };
 		45EE0B4D160E3F1C00B4072D /* ownershipframe.h in Headers */ = {isa = PBXBuildFile; fileRef = 45EE0B4B160E3F1C00B4072D /* ownershipframe.h */; };
+		47AC92F819302D7700E35A0E /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 47AC92F419302D6900E35A0E /* libstdc++.6.dylib */; };
 		47BDC9D11868CD5800FB5073 /* taglib.h in Headers */ = {isa = PBXBuildFile; fileRef = 47BDC9B11868CD5800FB5073 /* taglib.h */; };
 		47BDC9D21868CD5800FB5073 /* tbytevector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 47BDC9B21868CD5800FB5073 /* tbytevector.cpp */; };
 		47BDC9D31868CD5800FB5073 /* tbytevector.h in Headers */ = {isa = PBXBuildFile; fileRef = 47BDC9B31868CD5800FB5073 /* tbytevector.h */; };
@@ -569,6 +570,8 @@
 		45313D8715A10EA00092354D /* zero-size-chunk.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "zero-size-chunk.wav"; path = "taglib-src/tests/data/zero-size-chunk.wav"; sourceTree = SOURCE_ROOT; };
 		45EE0B4A160E3F1C00B4072D /* ownershipframe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ownershipframe.cpp; sourceTree = "<group>"; };
 		45EE0B4B160E3F1C00B4072D /* ownershipframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ownershipframe.h; sourceTree = "<group>"; };
+		47AC92F319302D6900E35A0E /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		47AC92F419302D6900E35A0E /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		47BDC9B11868CD5800FB5073 /* taglib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = taglib.h; sourceTree = "<group>"; };
 		47BDC9B21868CD5800FB5073 /* tbytevector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tbytevector.cpp; sourceTree = "<group>"; };
 		47BDC9B31868CD5800FB5073 /* tbytevector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tbytevector.h; sourceTree = "<group>"; };
@@ -648,6 +651,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47AC92F819302D7700E35A0E /* libstdc++.6.dylib in Frameworks */,
 				45084A7D159F48F900264051 /* libtaglib.a in Frameworks */,
 				45084A71159F48E400264051 /* Foundation.framework in Frameworks */,
 			);
@@ -703,6 +707,8 @@
 		45084705159F3A6600264051 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47AC92F319302D6900E35A0E /* libstdc++.6.0.9.dylib */,
+				47AC92F419302D6900E35A0E /* libstdc++.6.dylib */,
 				4520B03115A1B71900907235 /* libstdc++.dylib */,
 				45084706159F3A6600264051 /* Foundation.framework */,
 				45084A99159F6DCC00264051 /* SenTestingKit.framework */,
@@ -1826,7 +1832,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1847,7 +1853,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1859,13 +1865,15 @@
 		45084A0D159F479600264051 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DSTROOT = /tmp/taglib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_THUMB_SUPPORT = NO;
 				"GCC_THUMB_SUPPORT[arch=armv7]" = YES;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/taglib-src/taglib\"/**";
 				INSTALL_PATH = /usr/;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1875,13 +1883,15 @@
 		45084A0E159F479600264051 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DSTROOT = /tmp/taglib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_THUMB_SUPPORT = NO;
 				"GCC_THUMB_SUPPORT[arch=armv7]" = YES;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/taglib-src/taglib\"/**";
 				INSTALL_PATH = /usr/;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1891,14 +1901,15 @@
 		45084A79159F48E400264051 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DSTROOT = /tmp/taglib_objc.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "taglib-objc/taglib-objc-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				"GCC_THUMB_SUPPORT[arch=armv7]" = YES;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/taglib-src/taglib\"/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1908,15 +1919,16 @@
 		45084A7A159F48E400264051 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DSTROOT = /tmp/taglib_objc.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "taglib-objc/taglib-objc-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = "NDEBUG=1";
 				GCC_THUMB_SUPPORT = NO;
 				"GCC_THUMB_SUPPORT[arch=armv7]" = YES;
+				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/taglib-src/taglib\"/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
