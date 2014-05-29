@@ -14,6 +14,9 @@
 #include "id3v2frame.h"
 #include "id3v2header.h"
 #include "attachedpictureframe.h"
+#include "mp4file.h"
+#include "mp4tag.h"
+#include "mp4coverart.h"
 
 using namespace TagLib;
 
@@ -158,8 +161,8 @@ static inline TagLib::String TLStr(NSString *_string)
 }
 - (NSData *)albumArt
 {
-    MPEG::File *file = dynamic_cast<MPEG::File *>(_file.file());
-    if (file != NULL) {
+    TagLib::File *f = _file.file();
+    if( MPEG::File *file = dynamic_cast<MPEG::File *>(f) ){
         ID3v2::Tag *tag = file->ID3v2Tag();
         if (tag) {
             ID3v2::FrameList frameList = tag->frameListMap()["APIC"];
@@ -171,12 +174,24 @@ static inline TagLib::String TLStr(NSString *_string)
             }
         }
     }
+    else if( MP4::File *file = dynamic_cast<MP4::File *>(f) ){
+        MP4::Tag *tag = file->tag();
+        if( tag && tag->itemListMap().contains("covr") ){
+            MP4::CoverArtList l = tag->itemListMap()["covr"].toCoverArtList();
+            if( !l.isEmpty() ){
+                MP4::CoverArt cover = l.front();
+                TagLib::ByteVector bv = cover.data();
+                return [NSData dataWithBytes:bv.data() length:bv.size()];
+            }
+        }
+    }
+    
     return nil;
 }
 - (void)setAlbumArt:(NSData *)albumArt
 {
-    MPEG::File *file = dynamic_cast<MPEG::File *>(_file.file());
-    if (file != NULL) {
+    TagLib::File *f = _file.file();
+    if( MPEG::File *file = dynamic_cast<MPEG::File *>(f) ){
         ID3v2::Tag *tag = file->ID3v2Tag();
         if (tag) {
             tag->removeFrames("APIC");
@@ -190,6 +205,15 @@ static inline TagLib::String TLStr(NSString *_string)
                 
                 tag->addFrame(picture);
             }
+        }
+    }
+    else if( MP4::File *file = dynamic_cast<MP4::File *>(f) ){
+        MP4::Tag *tag = file->tag();
+        if( tag ){
+            MP4::CoverArtList l;
+            TagLib::ByteVector bv = ByteVector((const char *)[albumArt bytes], [albumArt length]);
+            l.append(MP4::CoverArt(MP4::CoverArt::JPEG, bv));
+            tag->itemListMap()["covr"] = l;
         }
     }
 }
