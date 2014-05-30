@@ -26,5 +26,6 @@
 @property (nonatomic) NSNumber *track;
 @property (nonatomic) NSString *genre;
 @property (nonatomic) NSData *albumArt;
+@property (nonatomic) NSData *userData;
 
 @end

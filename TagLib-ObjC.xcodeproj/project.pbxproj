@@ -1865,7 +1865,7 @@
 		45084A0D159F479600264051 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/taglib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_THUMB_SUPPORT = NO;
@@ -1873,17 +1873,18 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/taglib-src/taglib\"/**";
 				INSTALL_PATH = /usr/;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7s armv7 i386 arm64";
 			};
 			name = Debug;
 		};
 		45084A0E159F479600264051 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/taglib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_THUMB_SUPPORT = NO;
@@ -1891,17 +1892,18 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/taglib-src/taglib\"/**";
 				INSTALL_PATH = /usr/;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7s armv7 i386 arm64";
 			};
 			name = Release;
 		};
 		45084A79159F48E400264051 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/taglib_objc.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "taglib-objc/taglib-objc-Prefix.pch";
@@ -1909,17 +1911,18 @@
 				"GCC_THUMB_SUPPORT[arch=armv7]" = YES;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/taglib-src/taglib\"/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7s armv7 i386 arm64";
 			};
 			name = Debug;
 		};
 		45084A7A159F48E400264051 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/taglib_objc.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "taglib-objc/taglib-objc-Prefix.pch";
@@ -1928,10 +1931,11 @@
 				"GCC_THUMB_SUPPORT[arch=armv7]" = YES;
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/taglib-src/taglib\"/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7s armv7 i386 arm64";
 			};
 			name = Release;
 		};

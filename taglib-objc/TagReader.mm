@@ -218,6 +218,41 @@ static inline TagLib::String TLStr(NSString *_string)
     }
 }
 
+- (NSData*)userData
+{
+    TagLib::File *f = _file.file();
+    if( MP4::File *file = dynamic_cast<MP4::File *>(f) ){
+        MP4::Tag *tag = file->tag();
+        if( tag ){
+            NSString *tagName = @"----:taglib:userdata";
+            if( tag->itemListMap().contains([tagName UTF8String]) ){
+                TagLib::ByteVectorList l = tag->itemListMap()[[tagName UTF8String]].toByteVectorList();
+                TagLib::ByteVector bv = l.front();
+                return [NSData dataWithBytes:bv.data() length:bv.size()];
+            }
+        }
+        
+    }
+    
+    return nil;
+}
+
+- (void)setUserData:(NSData *)data
+{
+     TagLib::File *f = _file.file();
+    if( MP4::File *file = dynamic_cast<MP4::File *>(f) ){
+        MP4::Tag *tag = file->tag();
+        if( tag ){
+            TagLib::ByteVectorList l;
+            TagLib::ByteVector bv = ByteVector((const char *)[data bytes], [data length]);
+            l.append(bv);
+            
+            NSString *tagName = @"----:taglib:userdata";
+            tag->itemListMap()[[tagName UTF8String]] = l;
+        }
+    }
+}
+
 - (void)dealloc
 {
     _path = nil;
